@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import DraggableItem from "./DraggableItem";
+import DroppableArea from "./DroppableArea";
+import "./css/main.scss"; 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="items">
+        <span className="text-padding">Items</span>
+        <DraggableItem id="item1" text="item1"/>
+        <DraggableItem id="item2" text="item2"/>
+      </div>
+
+      <DroppableArea>
+        {/* this area is droppable */}
+      </DroppableArea>
     </div>
   );
 }
