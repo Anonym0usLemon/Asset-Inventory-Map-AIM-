@@ -1,17 +1,25 @@
-import DraggableItem from "./DraggableItem";
-import DroppableArea from "./DroppableArea";
+import { useState } from "react";
+import DroppableArea from "./components/dragndrop/DroppableArea";
+import Items from "./components/dragndrop/Items";
+import Menu from "./components/menu/Menu";
 import "./css/main.scss"; 
 
 function App() {
+  const [toggleMenu, setToggleMenu] = useState(true); 
+
+  function showMenu() {
+    setToggleMenu(true);
+  }
+
+  function hideMenu() {
+    setToggleMenu(false); 
+  }
+
   return (
     <div className="App">
-      <div className="items">
-        <span className="text-padding">Items</span>
-        <DraggableItem id="item1" text="item1"/>
-        <DraggableItem id="item2" text="item2"/>
-      </div>
-
-      <DroppableArea>
+      <Items/>
+      {toggleMenu && <Menu closeMenu={hideMenu}/>}
+      <DroppableArea openMenu={showMenu}>
         {/* this area is droppable */}
       </DroppableArea>
     </div>
